@@ -2,15 +2,16 @@ from flask import Flask, request, render_template
 from text2img_model import create_pipeline, text2img
 
 # Khởi tạo Flask app
-app =  Flask(__name__)
+app = Flask(__name__)
 
 # Định nghĩa tham số
-IMAGE_PATH  = "static/output.jpg"
+IMAGE_PATH = "static/output.jpg"
 
 # Khởi tạo pipeline
 pipeline = create_pipeline()
 
-@app.route("/", methods = ['GET', 'POST'])
+
+@app.route("/", methods=["GET", "POST"])
 def index():
     # Kiểm tra xem có phải người dùng view trang web không
     if request.method == "GET":
@@ -25,9 +26,8 @@ def index():
         print("Finish gen....")
         im.save(IMAGE_PATH)
 
-        return render_template("index.html", image_url = IMAGE_PATH)
-
-if __name__ =='__main__':
-    app.run(debug=False, host='0.0.0.0', port=8888, use_reloader=False)
+        return render_template("index.html", image_url=IMAGE_PATH)
 
 
+if __name__ == "__main__":
+    app.run(debug=False, host="0.0.0.0", port=8888, use_reloader=False)
