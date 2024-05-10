@@ -4,7 +4,8 @@ from text2img_model import text2img, create_pipeline
 app = Flask(__name__)
 IMAGE_PATH = "../static/output.jpg"
 
-pipeline  = create_pipeline()
+pipeline = create_pipeline()
+
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -25,5 +26,5 @@ def index():
 
 
 # Thuc thi server
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0',port=8888, use_reloader=False)
+if __name__ == "__main__":
+    app.run(debug=True, host="0.0.0.0", port=8888, use_reloader=False)

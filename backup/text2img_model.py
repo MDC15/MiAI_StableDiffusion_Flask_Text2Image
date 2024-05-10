@@ -10,14 +10,15 @@ GUIDANCE_SCALE = 0.75
 HEIGHT = 512
 WIDTH = 512
 
-model_list = ["nota-ai/bk-sdm-small",
-              "CompVis/stable-diffusion-v1-4",
-              "runwayml/stable-diffusion-v1-5",
-              "prompthero/openjourney",
-              "hakurei/waifu-diffusion",
-              "stabilityai/stable-diffusion-2-1",
-              "dreamlike-art/dreamlike-photoreal-2.0"
-              ]
+model_list = [
+    "nota-ai/bk-sdm-small",
+    "CompVis/stable-diffusion-v1-4",
+    "runwayml/stable-diffusion-v1-5",
+    "prompthero/openjourney",
+    "hakurei/waifu-diffusion",
+    "stabilityai/stable-diffusion-2-1",
+    "dreamlike-art/dreamlike-photoreal-2.0",
+]
 
 
 def create_pipeline(model_name=model_list[0]):
@@ -53,7 +54,7 @@ def text2img(prompt, pipeline):
         generator=generator,
         num_images_per_prompt=NUM_IMAGES_PER_PROMPT,
         height=HEIGHT,
-        width=WIDTH
+        width=WIDTH,
     ).images
 
     return images[0]
